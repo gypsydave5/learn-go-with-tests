@@ -88,7 +88,7 @@ We will later explore the difference between methods and functions.
 
 ### Go doc
 
-Another quality of life feature of Go is the documenation. You can launch the docs locally by running `godoc -http :8000`. If you go to [localhost:8000/pkg](http://localhost:8000/pkg) you will see all the packages installed on your system.
+Another quality of life feature of Go is the documentation. You can launch the docs locally by running `godoc -http :8000`. If you go to [localhost:8000/pkg](http://localhost:8000/pkg) you will see all the packages installed on your system.
 
 The vast majority of the standard library has excellent documentation with examples. Navigating to [http://localhost:8000/pkg/testing/](http://localhost:8000/pkg/testing/) would be worthwhile to see what's available to you. 
 
@@ -260,7 +260,7 @@ What have we done here?
 
 We've refactored our assertion into a function. This reduces duplication and improves readability of our tests. In go you can declare functions inside other functions and assign them to variables. You can then call them, just like normal functions. We need to pass in `t *testing.T` so that we can tell the test code to fail when we need to.
 
-Now that we have a well-written failing test, let's fix the code, using the `else` keyword.
+Now that we have a well-written failing test, let's fix the code, using an `if`.
 
 `t.Helper()` is needed to tell the test suite that this method is a helper. By doing this when it fails the line number reported will be in our _function call_ rather than inside our test helper. This will help other developers track down problems easier. If you still don't understand, comment it out, make a test fail and observe the test output. 
 
@@ -295,7 +295,7 @@ Seeing the test fail is an important check because it also lets you see what the
 
 By ensuring your tests are *fast* and setting up your tools so that running tests is simple you can get in to a state of flow when writing your code. 
 
-By not writing tests you are committing to manually checking your code by running your software which breaks your state of flow and you wont be saving yourself any time, especially in the long run. 
+By not writing tests you are committing to manually checking your code by running your software which breaks your state of flow and you won't be saving yourself any time, especially in the long run. 
 
 ## Keep going! More requirements
 
@@ -437,7 +437,7 @@ Write a test to now include a greeting in the language of your choice and you sh
 
 ### one...last...refactor?
 
-You could argue that maybe our function is getting a little big. The simplest refactor for this would be to extract out some functionality into another function and you already know how to declare functions.
+You could argue that maybe our function is getting a little big. The simplest refactor for this would be to extract out some functionality into another function.
 
 ```go
 func Hello(name string, language string) string {
@@ -469,7 +469,7 @@ A few new concepts:
      - You can return whatever it's set to by just calling `return` rather than `return prefix`. 
     - This will display in the Go Doc for your function so it can make the intent of your code clearer.
 - `default` in the switch case will be branched to if none of the other `case` statements match
-- The function name starts with a lowercase letter. In Go public functions start with a capital letter and private ones start with a lowercase. We dont want the internals of our algorithm to be exposes to the world so we made this function private.
+- The function name starts with a lowercase letter. In Go public functions start with a capital letter and private ones start with a lowercase. We don't want the internals of our algorithm to be exposes to the world so we made this function private.
 
 ## Wrapping up
 
@@ -481,7 +481,7 @@ By now you should have some understanding of
 
 - Writing tests
 - Declaring functions, with arguments and return types
-- `if`, `else`, `switch`
+- `if`, `const` and `switch`
 - Declaring variables and constants
 
 ### An understanding of the TDD process and _why_ the steps are important

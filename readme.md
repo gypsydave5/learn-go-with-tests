@@ -1,5 +1,7 @@
 # Learn go with tests
 
+[![Build Status](https://travis-ci.org/quii/learn-go-with-tests.svg?branch=master)](https://travis-ci.org/quii/learn-go-with-tests)
+
 ## Why?
 
 - Explore the Go language by writing tests
@@ -12,13 +14,14 @@
 1. [Hello, world](/hello-world) - Declaring variables, constants, if/else statements, switch, write your first go program and write your first test. Sub-test syntax and closures.
 2. [Integers](/integers) - Further Explore function declaration syntax and learn new ways to improve the documentation of your code.
 3. [Iteration](/for) - Learn about `for` and benchmarking.
-4. [Arrays](/arrays) - Learn about arrays and `range`
+4. [Arrays and slices (WIP)](/arrays) - Learn about arrays, slices, `len`, varargs, `range` and test coverage.
 
 Property based tests (todo)
 
 ## Contributing
 
 - *This project is work in progress* If you would like to contribute, please do get in touch.
+- Read [contributing.md](contributing.md) for guidelines
 - Any ideas? Create an issue 
 
 ## Background
