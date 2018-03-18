@@ -46,7 +46,7 @@ func IsWebsiteOK(url string) bool {
 If the above isn't familiar to you, don't worry about it. The key thing for this
 exercise is that the above function _may_ take some time to return a result.
 
-Jo's function is great, but you've been asked to make a version that takes
+You've been asked to make a version that takes
 _multiple_ URLs and returns a list with the result that `IsWebsiteOK` gives for
 each one.
 
@@ -110,7 +110,7 @@ FAIL    github.com/gypsydave5/learn-go-with-tests/concurrency/v1 [build failed]
 
 ### Write the minimal amount of code for the test to run and check the failing test output
 
-To get this to pass we need to implement `websiteChecker` with the correct type
+To get this to pass we need to implement `WebsiteChecker` with the correct type
 signature - a function that takes a single argument of a slice of `string`s
 (`[]string`) and returns a slice of `bool`s (`[]bool`).
 
@@ -132,7 +132,7 @@ FAIL    github.com/gypsydave5/learn-go-with-tests/concurrency/v1        0.010s
 
 ### Write enough code to make it pass
 
-The code now builds (hooray), but the first test fails because the length of the
+It now compiles and the first test fails because the length of the
 slice returned is too short. This is easy enough to fix by defining a length for
 the slice:
 
@@ -251,7 +251,7 @@ This dependency on the Internet is a bad thing because these failures will have
 nothing to do with any changes to the behaviour of our code. More precisely, we
 can say that our dependency is on Jo's function `IsWebsiteOK`. If that function
 stops working for any reason at all - whether the network cuts out or Jo creates
-a bug in her code - our code will stop working and our tests will fail.
+a bug in her code - _our_ code will stop working and our tests will fail.
 
 To mitigate this problem we can make `IsWebsiteOK` an extra argument to our
 `WebsiteChecker` function. Then, in the tests, we can use a different function
@@ -344,9 +344,7 @@ will be 90% of the way to making them pass.
 
 ### Write the minimal amount of code for the test to run and check the failing test output
 
-We should now be able to change `websiteChecker` to at least get the compilation
-to work, just by adding an extra argument of type `func(string) bool` to its
-argument list.
+Change `WebsiteChecker` to include the argumennt `func(string) bool` so it will compile
 
 ```go
 package concurrency
@@ -367,7 +365,7 @@ exit status 1
 FAIL    github.com/gypsydave5/learn-go-with-tests/concurrency/v2     0.241s
 ```
 
-Which is because we're still not using the function we're passing in.
+The test fails because we're still not using the function we're passing in.
 
 ### Write enough code to make it pass
 
@@ -396,7 +394,9 @@ ok      github.com/gypsydave5/learn-go-with-tests/concurrency/v2     0.013s
 
 `func(string) bool` doesn't exactly trip off the tongue when trying to describe
 what the function is doing - you can tell the behaviour, but it's hard to say
-what the intention of it is. Happily in Go we can give a type an alias - like
+what the intention of it is. 
+
+Happily in Go we can give a type an alias - like
 a nickname we can use for a type. This will help us to remember that the
 function we pass in is for checking a website's status.
 
